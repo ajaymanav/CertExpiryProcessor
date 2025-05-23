@@ -1,1 +1,26 @@
+name: Run Python CsvExpiryProcessor Every 5 Minutes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  run-processor:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt || echo "No dependencies"
+
+    - name: Run CsvExpiryProcessor
+      run: python CertExpiryProcessor.py
 
