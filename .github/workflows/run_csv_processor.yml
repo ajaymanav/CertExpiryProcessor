@@ -2,14 +2,14 @@ name: Run CsvExpiryProcessor
 
 on:
   schedule:
-    - cron: '*/5 * * * *'         # Runs every 5 minutes
-  workflow_dispatch:              # Manual run from GitHub UI
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
   push:
     branches:
-      - main                      # Runs on push to main branch
+      - main
   pull_request:
     branches:
-      - main                      # Runs on PR targeting main branch
+      - main
 
 jobs:
   run-processor:
@@ -24,8 +24,8 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Show repo files (debugging)
+    - name: Show repo files
       run: ls -R
 
     - name: Run CsvExpiryProcessor
-      run: python CertExpiryProcessor/CertExpiryProcessor.py
+      run: python CertExpiryProcessor/CertExpiryProcessor/CertExpiryProcessor.py
