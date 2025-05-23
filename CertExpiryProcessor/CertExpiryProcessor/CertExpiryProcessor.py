@@ -1,7 +1,8 @@
 import csv
 from datetime import datetime, timedelta
 
-CSV_FILE = 'data.csv'
+BASE_DIR = os.path.dirname(__file__)
+CSV_FILE = os.path.join(BASE_DIR, 'data.csv')
 
 def process_csv():
     print("CsvExpiryProcessor started...")
