@@ -28,4 +28,4 @@ jobs:
       run: ls -R
 
     - name: Run CsvExpiryProcessor
-      run: python CertExpiryProcessor/CertExpiryProcessor/CertExpiryProcessor.py
+      run: python CertExpiryProcessor/CertExpiryProcessor.py
